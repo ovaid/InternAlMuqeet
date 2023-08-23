@@ -8,24 +8,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js"></script>
-
-<script src="jquery.comiseo.daterangepicker.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.23/moment-timezone-with-data.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 
     <input type="text" id="dateTimepicker" placeholder="Choose Date and Time" />
     <input type="text" name="" id="datePicker">
-    <input type="text" name="daterange" id="dateRangePicker" value="01/01/2018 - 01/15/2018"
-    >
+    <input type="text" name="" id="dateRangePicker">
     <button id="btn">setTimeout</button>
     <button id="bttn">setInterval</button>
     <script>
         //  $(document).ready  OR
-       $(document).ready(function(){
+       jQuery(function(){
             $("#dateTimepicker").datetimepicker()
 
             $("#btn").click(function(){
@@ -37,22 +30,8 @@
           })  
 
           $("#datePicker").datepicker();
-
-          // $(`#dateRangePicker`).daterangepicker();
-
-
-// ==================utc===============
-
-const date = "2023-02-25 , 10:25:00";
-const zone  = "Anantnag";
-const UTCdate = moment.tz(date, zone).utc().format();
-
-console.log(moment)
-
-
-
-
-        });
+          $("dateRangePicker").daterangepicker();
+        })
 
 
     </script>

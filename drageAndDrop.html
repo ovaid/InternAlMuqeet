@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"
+        referrerpolicy="no-referrer"></script>
+
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/$VERSION/dragula.min.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
+        integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/css/bootstrap.min.css"
+        integrity="sha512-UVQYZVYu7WhHEaO2xGEmc4/3F8ctnXt4jwfGl2MCIHKc95RMgYS8yfNJ3j6wUe0UGiTK0S3vcmh3Ml9h278x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.css"
+        integrity="sha512-gGkweS4I+MDqo1tLZtHl3Nu3PGY7TU8ldedRnu60fY6etWjQ/twRHRG2J92oDj7GDU2XvX8k6G5mbp0yCoyXCA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="dist/dragula.min.css" rel="stylesheet" />
+    <script src="dist/dragula.min.js"></script>
+
+    <title>Document</title>
+
+    <style>
+        .main-container {
+            display: flex;
+        }
+        .mar images:hover{
+            width: 200px;
+            height: 200px;
+            border-radius: 60px;
+        }
+        /* body .imgg{
+            display: flex;
+            flex-direction: row;
+
+           
+        } */
+        /* .img images{
+            width: 100px;
+            height: 100px;
+            padding: 4px;
+            border: 2px solid black;
+            margin: 8px;
+            border-radius: 30px;
+        } */
+
+
+        .ajax {
+            width: 120px;
+            height: 50px;
+        }
+
+        #container1 {
+            padding: 5px;
+            border: 2px solid red;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            /* display: inline; */
+            height: 800px;
+            cursor: pointer;
+        }
+
+        #container1 button {
+            padding: 5px;
+            border: 2px solid blue;
+            margin: 5px;
+            width: auto;
+            height: 80px;
+        }
+
+        #container2 {
+            padding: 5px;
+            border: 2px solid rgb(255, 0, 208);
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            /* display: inline; */
+            height: 800px;
+            cursor: pointer;
+
+        }
+
+        #container2 button {
+            padding: 5px;
+            border: 2px solid green;
+            margin: 5px;
+            width: auto;
+            height: 80px;
+        }
+
+        #container2 button:hover {
+            background-color: tomato;
+            color: springgreen;
+            height: 120px;
+        }
+
+        #container1 button:hover {
+            background-color: sienna;
+            color: maroon;
+            height: 120px;
+        }
+    </style>
+</head>
+
+<body onload="init()">
+
+    <div class="main-container">
+        <h2>this is container1</h2><br><br>
+        <div id="container1">
+            <button>this is first el</button>
+            <button>this is second el</button>
+            <button>this is third el</button>
+            <button>this is fourth el</button>
+            <button>this is fifth el</button>
+
+        </div>
+        <hr>
+        <hr>
+
+        <img src="https://images.unsplash.com/photo-1692610492938-37a4eed63ac0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80"
+            alt="error" height="100px" width="800px">
+        <button class="img">this is my image</button>
+
+        <h2 class="h">this is cntainer2</h2><br><br>
+        <div id="container2">
+            <button>ist el</button>
+            <button>second el</button>
+            <button class="third">third el</button>
+            <button>fourth el</button>
+            <button>fiftth el</button>
+        </div>
+    </div>
+
+
+
+    <div class="ordered">
+        <label for="">this is an ordered list</label>
+        <li>Ol1</li>
+        <li>OL2</li>
+        <li>OL3</li>
+        <li>OL4</li>
+    </div>l
+    <div class="unordered">
+        <label for="">this is an unordered list</label>
+        <ul>Ul1</ul>
+        <ul>UL2</ul>
+        <ul>UL3</ul>
+        <ul>UL4</ul>
+    </div>
+
+
+    <button id="add">Add new</button>
+    <div id="container">
+        <button class="alert">alert!</button>
+    </div>
+
+
+    <label for="name">Enter your Name</label>
+    <input type="name" name="name" class="name">
+    <select class="dDown">
+        <option value="name">Name</option>
+        <option value="firstName">FirstName</option>
+        <option value="lastName">LastName</option>
+        <option value="address">Address</option>
+    </select>
+
+
+
+    <h1>Serialize/serializeArray example returns the wuery String</h1>
+    <form action="">
+        <input type="text" name="fName" id="f" value="Ovaid">
+        <input type="text" name="lName" id="l" value="Mushtaq">
+        <input type="email" name="email" id="e" value="ovaidmushtaq.ovi@gmail.com">
+        <input type="password" name="pasword" id="p" value="1234">
+        <button class="btnn">serialize</button> <button class="btnnA">serializeArray</button>
+        <button class="sub">submit</button>
+    </form>
+    <h2 class="h2"></h2>
+    <a target="_blank" "anchor" href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_event_submit"> this
+        is the link to my document page</a>
+
+    <div>Click here</div>
+    <div>to iterate through</div>
+    <div>these divs.</div>
+
+    <section class="sect"></section>
+    <button class="ajax">this is ajax</button>
+    <img class="image" alt="error">
+    <div class="imgg"></div>
+    <marquee  class="mar" behavior="slide " direction="left"></marquee>
+
+    <b>this is my bold tag</b>
+    <!-- <button id="button">click me ajaxComplete</button> -->
+    <div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src='demo_wait.gif' width="64" height="64" /><br>Loading..</div>
+    <div id="txt"><h2>Let AJAX change this text</h2></div>
+
+       <button id="button">Change Content</button>
+    <script>
+        jQuery(function () {
+            //in .on()method we can pass selector as a paramter where as in .click() method we can not 
+            //otherwise the function and working of the methods is same.
+
+
+
+
+            //this is an example of a .trim() method which treminates the starting and ending splaces in a string
+            var string = "      this is an example of .trim() method     ";
+            console.log(string);
+            console.log($.trim(string));
+
+
+
+
+            $(".dDown").change(function () {
+                $(this).css("background-color", "red")
+
+            })
+
+
+
+            //this is the serialize array which returns me the quwery string 
+            $(".btnn").click(function () {
+                var serial = $("form").serialize();
+                alert(serial);
+            })
+
+
+
+
+            //this is the serializeArray method which returns the object query.
+            $(".btnnA").click(function () {
+                var serlArr = $("form").serializeArray()
+                $.each(serlArr, function (i, e) {
+                    alert(e.name + ":   " + e.value);
+
+                })
+            })
+
+
+
+
+            //this is the .submit() method used to submit the form inputs
+            $(".sub").click(function () {
+                $("form").submit(function () {
+                    alert("this form is submitted...!");
+
+                });
+            })
+
+
+
+
+
+            //this is an example of .preventDefault() method which prevents the default vlaue of any function
+            $("a").click(function (e) {
+                e.preventDefault();
+            })
+
+            $("li").each(function (index) {
+                console.log(index + ": " + $(this).text());
+            });
+
+
+
+            $(".img").click(function () {
+                $("img").attr("width", "500", "height", "480");
+            })
+
+
+
+            $(".unordered").find("ul").css({ "background-color": "black", "color": "white", "padding ": "10px", " margin": "5px", "border": "2px solid yellow", "text-align": "center" })
+
+
+
+            $(".ordered").find("li").css({ "background-color": "blue", "color": "tomato", "padding ": "10px", " margin": "5px", "border": "2px solid yellow", "text-align": "center" })
+
+
+
+
+            $("li").parent().css({ "margin": "5px", "display": "block", "backgroung-color": "maroon", "color": "grey", "padding": "10px", "border": "2px solid black" })
+
+
+
+
+            $("ul").parent().css({ "margin": "5px", "display": "block", "backgroung-color": "maroon", "color": "grey", "padding": "10px", "border": "2px solid black" })
+
+
+
+            $("#add").click(function () {
+                var html = "<button class='alert'>Alert!</button>";
+                $("button.alert:last").parent().append(html);
+            });
+
+
+
+
+            $("div#container").on('click', '.alert', function () {
+                alert(1);
+            });
+
+
+
+
+            $("button").parent().css({ "background-color": "grey", "color": "tomato" })
+            $("#container2").children().css({ "background-color": "yellow", "color": "blue" })
+            $("#container1").children().css({ "background-color": "green", "color": "black" })
+
+
+
+
+            dragula([document.getElementById('container1'), document.getElementById('container2')]);
+            // dragula([document.getElementById('container2'), document.getElementById('container1')]);
+
+
+
+
+            // $("#container1").sortable({coonectWith : "#container2", dropOnEmpty:false});
+            // $("#container2").sortable({connectWith : "#container1", dropOnEmpty : false});
+        })
+
+
+
+
+        // this is an example of .each() loop which is used to iterate over the children of an element like the forEach or for loop does.
+        $("body").on("click", function () {
+            $("div").each(function () {
+                if (this.style.color !== "blue") {
+                    this.style.color = "blue";
+                } else {
+                    this.style.color = "";
+                }
+            });
+
+
+            $(".ajax").click(function () {
+
+                $.ajax({
+                    type: "GET",
+                     url: "https://dummyjson.com/products", 
+                     success: function (result) {
+
+                        debugger;
+
+
+
+                        // $(".sect").html(JSON.stringify(result.products[0].images));
+
+                        // $(".image").attr("src", "https://i.dummyjson.com/data/products/1/1.jpg");
+                        // $(".image").css({ "width": "700", "height": "700", "border": "2px solid yellow", "border": "6px solid green", "border-radius": "60px", "padding": "2px" })
+                        // $(".imgg").html(".image")
+
+                        // $(".sect").css({ "background-color": "black", "color": "white" })
+
+                        let images = '';
+
+                        for (let i = 0; i < result.products.length; i++) { 
+
+                            for (let j = 0; j < result.products[i].images.length; j++) {
+                                
+                                images += `<img src="${result.products[i].images[j]}"/>`;
+
+                            }
+                        }
+
+                        $(".imgg").append(images);
+                        $(".mar").append(images)
+                        $('body').append(".mar");
+                        $(".imgg").css({"display":"grid",  "grid-template": "repeat(10, 2fr) / repeat(10, 2fr)","gap": "5px;"})
+
+                        $("img").css({"width":"150px", "height":"150px", "padding":"5px", "border":"2px solid yellow","margin":"2px", "border-radius":"20px" ,"display":"inline"})
+                          }
+                          
+                     });
+
+                    
+                   
+            });
+
+             // this is used to run when the ajax request is completed.....below is the format for this method.
+            $(document).ajaxComplete(function(){
+                     $("#wait").css("display", "none");
+                        });
+
+
+
+        });
+    </script>
+
+
+</body>
+
+</html>
