@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</head>
+<body>
+     
+   <h4>Customers</h4>
+   <hr/>
+   <div id="dvCustomersGrid"></div>
+   <script type="text/javascript">
+    $(function () {
+        $.get("https://raw.githubusercontent.com/aspsnippets/test/master/Customers.json", function (data, status) {
+            var customers = JSON.parse(data);
+ 
+            //Create a HTML Table element.
+            var table = $("<table />");
+            table[0].border = "1";
+ 
+            //Add the header row.
+            var row = $(table[0].insertRow(-1));
+ 
+            //Add the header cells.
+            var headerCell = $("<th />");
+            headerCell.html("CustomerId");
+            row.append(headerCell);
+ 
+            var headerCell = $("<th />");
+            headerCell.html("Name");
+            row.append(headerCell);
+ 
+            var headerCell = $("<th />");
+            headerCell.html("Country");
+            row.append(headerCell);
+ 
+            //Add the data rows.
+            for (var i = 0; i < customers.length; i++) {
+                //Add the data row.
+                var row = $(table[0].insertRow(-1));
+ 
+                //Add the data cells.
+                var cell = $("<td />");
+                cell.html(customers[i].CustomerId);
+                row.append(cell);
+ 
+                cell = $("<td />");
+                cell.html(customers[i].Name);
+                row.append(cell);
+ 
+                cell = $("<td />");
+                cell.html(customers[i].Country);
+                row.append(cell);
+            }
+ 
+            var dvTable = $("#dvCustomersGrid");
+            dvTable.html("");
+            dvTable.append(table);
+        });
+    });
+</script>
+</body>
+</html>
