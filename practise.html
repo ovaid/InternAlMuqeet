@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js" integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap-grid.min.css" integrity="sha512-2cWcZ9cbPMZFm2inlFOhwsBVbNMmNxKBtVXqL8OY9tXCZahhnIfXMxPCzpKqiHF2I2mOiNHNXEDUDglwd+4uYw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-ajax-uploader/2.6.7/SimpleAjaxUploader.min.js" integrity="sha512-sF1OQUX4620btxfaKLxsFeu/euV3FcPyH+uST3mdEjc8vW8R4z1xNiZhcG7wcZQbFkgFhiiBoAyYNMCL3jufPA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+
+</head>
+<body>
+
+    <!-- https://dummy.restapiexample.com/api/v1/employees -->
+    <table id="tab" border="10" style="color: white;background-image: url(https://images.pexels.com/photos/2350377/pexels-photo-2350377.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>employee_name</th>
+                <th>employee_salary</th>
+                <th>employee_age</th>
+                <th>emplyee_image</th>
+            </tr>
+        </thead>
+
+        <tbody class="tb">
+
+        </tbody>
+    </table>
+
+
+
+    <!-- Another Table  -->
+    <table id="dataTable" border="40px solid red" style="color: white;background-image: url(https://images.pexels.com/photos/163891/italy-sicily-sea-ocean-163891.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);">
+        <thead >
+          <tr>
+            <th>postId</th>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>body</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button id="demo2">this is for another dummy</button>
+    <button id="demo"> this is another ajax</button>
+    <script>
+        $(document).ready(function(){
+            //  Employee data dummyAPI 
+                 $("#demo").click(function(){
+                     $.ajax({
+                 type: "GET",
+                 url: "https://dummy.restapiexample.com/api/v1/employees",
+                 success: function(response){
+                    
+                     let str = ""
+                    
+                    $.each(response.data, function(index, employee){
+
+                        
+
+
+            // this is one way of doing this and below is the another way and easiest way by using string interpolatioon
+                        //  var row = ("<tr>");
+                        //  row.append($("<td/>").text(employee.employee_id));
+                        //  row.append($("<td/>").text(employee.employee_name));
+                        //  row.append($("<td/>").text(employee.employee_salary));
+                        //  row.append($("<td/>").text(employee.employee_age));
+                        //  row.append($("<td/>").text(employee.profile_image));
+                        
+                        str += `<tr>
+                                  <td>${employee.id}</td>
+                                  <td>${employee.employee_name}</td>
+                                  <td>${employee.employee_salary}</td>
+                                  <td>${employee.employee_age}</td>
+                                  <td>${employee.employee_image}</td>
+                                </tr>`;
+                             
+                            
+                        });
+                        
+                     $("#tab tbody").append(str);
+
+                     
+                 },
+                 error: function(error){
+                   console.log("There is something wrong with the data", error);
+                 }
+             });
+         });
+
+
+
+         $("#demo2").click(function(){
+            $.ajax({
+                type:"GET",
+                url : "https://jsonplaceholder.typicode.com/posts/1/comments",
+                success:function(data){
+                    let string = "";
+                    $.each(data, function(index, item){
+                        string += `<tr>
+                                    <td>${item.postId}</td>
+                                    <td>${item.id}</td>
+                                    <td>${item.name}</td>
+                                    <td>${item.email}</td>   
+                                    <td>${item.body}</td>
+
+                                </tr>`
+                    })
+                    $("#dataTable tbody").append(string);
+                },
+                error: function(error){
+                   console.log("There is something wrong with the data", error);
+                 }
+            })
+         })
+
+
+
+
+        //  Another table is used here 
+
+          // Make AJAX request to get country, state, and district data
+//   $.ajax({
+//     url: "https://dummyapi.com/api/countries",
+//     method: "GET",
+//     success: function(response) {
+//       // Iterate over each country
+//       response.forEach(function(country) {
+//         // Iterate over each state of the country
+//         country.states.forEach(function(state) {
+//           // Iterate over each district of the state
+//           state.districts.forEach(function(district) {
+//             // Append data to table
+//             $("#dataTable").append(`
+//               <tr>
+//                 <td>${country.name}</td>
+//                 <td>${state.name}</td>
+//                 <td>${district}</td>
+//               </tr>
+//             `);
+//           });
+//         });
+//       });
+//     },
+//     error: function() {
+//       console.log("Error: Unable to fetch data.");
+//     }
+//   });
+        });
+         
+    </script>
+</body>
+</html>

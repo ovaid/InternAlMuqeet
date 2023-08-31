@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.6.2/tinymce.min.js" integrity="sha512-lLE5tUMZXmDmyGWI5KDlFemVusXiALcU1lPibL4xkPbPvuOXfXcdoeU3KBDxWp18/KOzrfKkgsscN1t9740ciA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.6.2/skins/content/dark/content.min.css" integrity="sha512-w/Ci+oRIxxCuQ8gmJS55uQHTW870sSCgkyiN8uVJKKuZvZtUcA1ONEJDI9o2FTGo2nftq9bdg1z2E7SaigKI8g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>tinyMC example</title>
+</head>
+<body>
+    <h1>this is a tinyMC </h1>
+    <textarea name="" id="txt" cols="30" rows="50">
+        <p><em>Ovaid</em>, <span style="text-decoration: underline;"><strong>Mushtaq!</strong></span></p>
+    </textarea>
+
+    <script>
+        $(document).ready(function(){
+            tinymce.init({
+                selector : "#txt"
+            })
+        })
+    </script>
+</body>
+</html>

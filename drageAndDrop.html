@@ -201,7 +201,9 @@
     <b>this is my bold tag</b>
     <!-- <button id="button">click me ajaxComplete</button> -->
     <div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src='demo_wait.gif' width="64" height="64" /><br>Loading..</div>
-    <div id="txt"><h2>Let AJAX change this text</h2></div>
+    <div id="txt">
+        <h2>Let AJAX change this text</h2>
+    </div>
 
        <button id="button">Change Content</button>
     <script>
@@ -374,12 +376,19 @@
                         $(".imgg").append(images);
                         $(".mar").append(images)
                         $('body').append(".mar");
-                        $(".imgg").css({"display":"grid",  "grid-template": "repeat(10, 2fr) / repeat(10, 2fr)","gap": "5px;"})
+                        $(".imgg").css({"display":"grid",  "grid-template": "repeat(11, 4fr) / repeat(11, 4fr)","gap": "5px"})
+                        // $(".imgg").togg(function(){
+                        //     $(".imgg") .css({"width":"200px", "height":"200px"})
 
+                        // })
                         $("img").css({"width":"150px", "height":"150px", "padding":"5px", "border":"2px solid yellow","margin":"2px", "border-radius":"20px" ,"display":"inline"})
                           }
                           
                      });
+
+
+
+                     
 
                     
                    

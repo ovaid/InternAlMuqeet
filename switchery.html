@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js" integrity="sha512-lC8vSUSlXWqh7A/F+EUS3l77bdlj+rGMN4NB5XFAHnTR3jQtg4ibZccWpuSSIdPoPUlUxtnGktLyrWcDhG8RvA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.css" integrity="sha512-zKvhCkM8b3JMULax/MlTkNk4gQwMbY8CqpDQC74/n7H6UK3HOZA/mO/fvjhVlh0V/E6PCrp4U6Lw6pnueS9HCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Switchery Example</title>
+</head>
+<body>
+        <label for="">ON/OFF the button</label>
+        <input class="in" type="checkbox" name="" id="inp1"> <br><br>
+        <label for="">OPEN/CLOSE</label>
+        <input class="in" type="checkbox" name="" id="inp2"><br><br>
+        <label for="">Another Switch</label>
+        <input type="checkbox" name="" id="in">
+        
+
+
+        <!-- //this is for the practise of SWITCHERY component -->
+        <script>
+            $(document).ready(function(){
+                
+                var elems = document.getElementsByClassName('in');
+	             for (var i = 0; i < elems.length; i++) {
+	               var switchery = new Switchery(elems[i]);
+                 }
+
+                 var init = document.getElementById(`in`);
+                 var ele = new Switchery(init,{
+                    color             : 'maroon', 
+                    secondaryColor    : 'pink',
+                    jackColor         :"crimson", 
+                    jackSecondaryColor: "tomato", 
+                    size              :"small",
+                    disabledOpacity   : 0.8,
+                    disabled          : false,
+                    speed             : '.5s',
+                })
+  
+                })
+
+//                  var init = new Switchery(elem,{
+// 
+// 	    // primary color
+// 
+// 	    color             : '#64bd63',
+
+// 	    // secondary color
+// 	    secondaryColor    : '#dfdfdf',
+// 	    // primary handle color
+// 	    jackColor         : '#fff',
+// 	    // secondary handle color
+// 	    jackSecondaryColor: null,
+	 
+// 	    // default CSS class
+// 	    className         : 'switchery'
+// 	    // enable/disable click/tap events on the switch
+// 	    disabled          : false,
+// 	    // opacity when disabled
+// 	    disabledOpacity   : 0.5,
+// 	    // animation speed
+// 	    speed             : '0.4s',
+// 	    // 'small', 'large'
+// 	    size              : 'default'
+// 	});
+     
+	
+        </script>
+</body>
+</html>

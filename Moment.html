@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+    <title>momentJSE example </title>
+    <style>
+
+        *{
+            margin: 15px;
+            padding: 5px;
+        }
+        div{
+            background-color: crimson;
+            color: white;
+            padding: 20px;
+            border: 4px solid grey;
+            margin: 8px;
+            border-radius: 20px;
+            display: inline;
+            width: 30%;
+        }
+    </style>
+
+</head>
+<body>
+      <label for="">this is for the current Date Format</label>
+      <input id="current" type="date" name="date" >
+      <button id="btn1">currentDate</button>
+      <div id="format1">DD-MM-YYYY:  </div>
+      <div id="format2">DD MMMM YYYY :  </div>
+      <div id="format3">DD/MM/YYYY :</div>
+
+
+      <script>
+        
+        $("#btn1").click(function(){
+
+
+                 var dateOne = moment($("#current").val()).format('DD-MM-YYYY');
+                $("#format1").text(dateOne);
+                console.log(dateOne);
+
+
+                var dateTwo = moment($("#current").val()).format(`DD MMMM YYYY`)
+                $("#format2").text(dateTwo);
+                console.log(dateTwo)
+
+
+                var dateThree = moment($("#current").val()).format(`DD/MM/YYYY`);
+                $("#format3").text(dateThree)
+
+
+
+
+                //current offSet date
+                
+            })
+
+       
+      </script>
+</body>
+</html>
